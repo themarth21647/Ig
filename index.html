@@ -1,0 +1,4154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HotContent — Premium Packs</title>
+
+<style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+:root{
+ --bg:#080808;
+ --card:#111;
+ --card2:#171717;
+ --red:#ff2020;
+ --white:#fff;
+ --muted:#999;
+ --border:rgba(255,255,255,.09);
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ background:
+ radial-gradient(circle at 50% -10%,rgba(255,0,0,.12),transparent 35%),
+ var(--bg);
+ color:var(--white);
+ font-family:Arial,Helvetica,sans-serif;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+
+button,a{
+ font-family:inherit;
+}
+
+/* ================= HEADER ================= */
+
+header{
+ width:100%;
+ padding:16px 4%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid var(--border);
+ position:sticky;
+ top:0;
+ z-index:1000;
+ background:rgba(8,8,8,.94);
+ backdrop-filter:blur(12px);
+}
+
+.logo{
+ font-size:21px;
+ font-weight:900;
+ letter-spacing:-1px;
+}
+
+.logo span{
+ color:var(--red);
+}
+
+.header-right{
+ display:flex;
+ align-items:center;
+ gap:12px;
+}
+
+.cart{
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ background:#151515;
+ border:1px solid var(--border);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.cart:hover{
+ border-color:var(--red);
+ transform:translateY(-2px);
+}
+
+.cart-count{
+ position:absolute;
+ right:-3px;
+ top:-3px;
+ width:18px;
+ height:18px;
+ border-radius:50%;
+ background:var(--red);
+ font-size:10px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ max-width:1100px;
+ margin:auto;
+ padding:65px 20px 30px;
+ text-align:center;
+}
+
+.hero h1{
+ font-size:clamp(32px,6vw,62px);
+ line-height:1;
+ font-weight:900;
+}
+
+.hero h1 span{
+ color:var(--red);
+}
+
+.hero p{
+ max-width:650px;
+ margin:18px auto 0;
+ color:var(--muted);
+ font-size:15px;
+ line-height:1.6;
+}
+
+/* ================= FEATURED ================= */
+
+.featured{
+ max-width:1000px;
+ margin:15px auto 38px;
+ padding:0 20px;
+}
+
+.featured-inner{
+ background:linear-gradient(90deg,#260000,#130000);
+ border-left:3px solid var(--red);
+ padding:14px 16px;
+ border-radius:7px;
+ font-size:13px;
+}
+
+.featured-inner span{
+ color:#ff3333;
+ font-weight:bold;
+}
+
+/* ================= PROMOTION ================= */
+
+.promotion{
+ max-width:650px;
+ margin:25px auto 55px;
+ padding:25px 18px;
+ text-align:center;
+ background:linear-gradient(145deg,#270000,#110000);
+ border:1px solid rgba(255,30,30,.35);
+ border-radius:10px;
+}
+
+.promotion h2{
+ font-size:23px;
+ margin-bottom:8px;
+}
+
+.promotion p{
+ color:#bbb;
+ font-size:14px;
+}
+
+.coupon{
+ margin:12px auto;
+ display:inline-block;
+ padding:7px 14px;
+ border:1px dashed var(--red);
+ border-radius:5px;
+ font-weight:bold;
+ letter-spacing:1px;
+}
+
+.countdown{
+ margin:13px 0;
+ font-size:19px;
+ font-weight:bold;
+ color:#ff3b3b;
+}
+
+.claim,
+.pay-btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:7px;
+ background:linear-gradient(135deg,#ff3b3b,#c90000 70%,#8f0000);
+ color:white;
+ text-decoration:none;
+ padding:11px 22px;
+ border:1px solid rgba(255,90,90,.55);
+ border-radius:8px;
+ font-size:13px;
+ font-weight:900;
+ letter-spacing:.5px;
+ cursor:pointer;
+ box-shadow:
+ 0 7px 20px rgba(255,0,0,.20),
+ inset 0 1px 0 rgba(255,255,255,.16);
+ transition:.2s;
+}
+
+.claim:hover,
+.pay-btn:hover{
+ transform:translateY(-2px);
+ filter:brightness(1.08);
+ box-shadow:
+ 0 10px 28px rgba(255,0,0,.34),
+ inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+/* ================= PRODUCTS ================= */
+
+.section{
+ max-width:1150px;
+ margin:auto;
+ padding:0 20px 55px;
+}
+
+.section-title{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:22px;
+}
+
+.section-title h2{
+ font-size:21px;
+}
+
+.view-all{
+ color:var(--red);
+ font-size:12px;
+ font-weight:bold;
+ cursor:pointer;
+ user-select:none;
+}
+
+.view-all:hover{
+ text-decoration:underline;
+}
+
+.products{
+ display:grid;
+ grid-template-columns:repeat(4, minmax(0, 1fr));
+ gap:18px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:11px;
+ overflow:hidden;
+ transition:.25s;
+ min-width:0;
+}
+
+.card:hover{
+ transform:translateY(-4px);
+ border-color:rgba(255,0,0,.45);
+ box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+/* ================= VIDEO PREVIEW ================= */
+
+.preview{
+ height:205px;
+ background:#181818;
+ position:relative;
+ overflow:hidden;
+ cursor:pointer;
+}
+
+.preview video{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+ transition:.3s;
+}
+
+.card:hover .preview video{
+ transform:scale(1.04);
+}
+
+.preview-overlay{
+ position:absolute;
+ inset:0;
+ background:rgba(0,0,0,.24);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ opacity:0;
+ transition:.2s;
+}
+
+.card:hover .preview-overlay{
+ opacity:1;
+}
+
+.play{
+ width:54px;
+ height:54px;
+ border-radius:50%;
+ background:rgba(255,32,32,.94);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:20px;
+ padding-left:3px;
+ box-shadow:0 8px 25px rgba(255,0,0,.3);
+}
+
+.tag{
+ position:absolute;
+ top:9px;
+ left:9px;
+ background:var(--red);
+ padding:4px 7px;
+ border-radius:4px;
+ font-size:10px;
+ font-weight:bold;
+ z-index:2;
+}
+
+/* ================= CARD BODY ================= */
+
+.card-body{
+ padding:15px;
+}
+
+.card-body h3{
+ font-size:14px;
+ margin-bottom:7px;
+}
+
+.card-body p{
+ color:#888;
+ font-size:11px;
+ line-height:1.5;
+ min-height:32px;
+}
+
+.card-bottom{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-top:14px;
+ gap:8px;
+}
+
+.price{
+ font-size:16px;
+ font-weight:bold;
+ white-space:nowrap;
+}
+
+.card-actions{
+ display:flex;
+ align-items:center;
+ gap:8px;
+}
+
+/* CART BUTTON */
+
+.buy{
+ width:34px;
+ height:34px;
+ border:1px solid rgba(255,255,255,.10);
+ background:linear-gradient(145deg,#242424,#111);
+ color:#fff;
+ border-radius:9px;
+ cursor:pointer;
+ font-size:15px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ box-shadow:0 4px 12px rgba(0,0,0,.25);
+ transition:.2s;
+}
+
+.buy:hover{
+ background:linear-gradient(145deg,#ff3030,#a90000);
+ border-color:rgba(255,80,80,.5);
+ transform:translateY(-2px);
+}
+
+.buy:active{
+ transform:scale(.94);
+}
+
+/* PAY BUTTON */
+
+.pay-card-btn{
+ height:34px;
+ min-width:72px;
+ padding:0 14px;
+ background:linear-gradient(135deg,#ff3b3b,#c90000 70%,#8f0000);
+ color:#fff;
+ border:1px solid rgba(255,90,90,.55);
+ border-radius:9px;
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:.5px;
+ cursor:pointer;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ box-shadow:
+ 0 5px 15px rgba(255,0,0,.20),
+ inset 0 1px 0 rgba(255,255,255,.16);
+ transition:.2s;
+}
+
+.pay-card-btn:hover{
+ transform:translateY(-2px);
+ filter:brightness(1.08);
+ box-shadow:
+ 0 8px 22px rgba(255,0,0,.34),
+ inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+/* ================= HIDDEN PRODUCTS ================= */
+
+.hidden-product{
+    display:block !important;
+}
+/* ================= TESTIMONIAL ================= */
+
+.testimonial-section{
+ text-align:center;
+ padding:5px 20px 50px;
+}
+
+.testimonial{
+ max-width:420px;
+ margin:auto;
+ color:#aaa;
+ font-size:13px;
+ font-style:italic;
+ min-height:42px;
+ transition:opacity .3s;
+}
+
+.testimonial-name{
+ color:#777;
+ font-size:11px;
+ margin-top:6px;
+}
+
+/* ================= CART PANEL ================= */
+
+.cart-panel{
+ position:fixed;
+ top:0;
+ right:-400px;
+ width:min(400px,92%);
+ height:100vh;
+ background:#101010;
+ z-index:4000;
+ padding:25px;
+ border-left:1px solid var(--border);
+ transition:.3s;
+ box-shadow:-20px 0 60px rgba(0,0,0,.4);
+}
+
+.cart-panel.active{
+ right:0;
+}
+
+.cart-header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:25px;
+}
+
+.cart-header h2{
+ font-size:20px;
+}
+
+.close-cart{
+ background:none;
+ border:0;
+ color:white;
+ font-size:25px;
+ cursor:pointer;
+}
+
+.cart-items{
+ color:#999;
+ font-size:13px;
+ max-height:calc(100vh - 230px);
+ overflow:auto;
+ padding-right:4px;
+}
+
+.cart-item{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ padding:13px 0;
+ border-bottom:1px solid #222;
+}
+
+.cart-item-info{
+ flex:1;
+ min-width:0;
+}
+
+.cart-item-name{
+ color:#eee;
+ font-size:12px;
+ margin-bottom:4px;
+}
+
+.cart-item-price{
+ color:#888;
+ font-size:11px;
+}
+
+.remove-item{
+ background:#1d1d1d;
+ color:#777;
+ border:1px solid #292929;
+ width:25px;
+ height:25px;
+ border-radius:6px;
+ cursor:pointer;
+}
+
+.remove-item:hover{
+ color:#fff;
+ background:#a00000;
+}
+
+.cart-empty{
+ text-align:center;
+ padding:35px 10px;
+ color:#666;
+}
+
+.cart-total{
+ position:absolute;
+ bottom:25px;
+ left:25px;
+ right:25px;
+ padding-top:15px;
+ border-top:1px solid #222;
+}
+
+.cart-total-row{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:14px;
+ margin-bottom:12px;
+}
+
+.cart-total-row strong{
+ color:#fff;
+ font-size:18px;
+}
+
+.checkout{
+ width:100%;
+ padding:13px;
+ background:linear-gradient(135deg,#ff3b3b,#b80000);
+ color:white;
+ border:0;
+ border-radius:8px;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.checkout:hover{
+ filter:brightness(1.1);
+ transform:translateY(-2px);
+}
+
+/* ================= MODALS ================= */
+
+.modal{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.78);
+ backdrop-filter:blur(8px);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:18px;
+ z-index:5000;
+}
+
+.modal.active{
+ display:flex;
+}
+
+.modal-box{
+ width:min(650px,100%);
+ max-height:92vh;
+ overflow:auto;
+ background:#111;
+ border:1px solid var(--border);
+ border-radius:12px;
+ box-shadow:0 20px 80px rgba(0,0,0,.6);
+}
+
+.modal-header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:16px 18px;
+ border-bottom:1px solid var(--border);
+}
+
+.modal-header h3{
+ font-size:16px;
+}
+
+.modal-close{
+ background:none;
+ border:0;
+ color:#aaa;
+ font-size:25px;
+ cursor:pointer;
+}
+
+/* ================= VIDEO MODAL ================= */
+
+.video-wrap{
+ background:#000;
+ aspect-ratio:16/9;
+}
+
+.video-wrap video{
+ width:100%;
+ height:100%;
+ display:block;
+ object-fit:contain;
+}
+
+.video-info{
+ padding:20px;
+}
+
+.video-info h2{
+ font-size:20px;
+ margin-bottom:7px;
+}
+
+.video-info p{
+ color:#888;
+ font-size:13px;
+ margin-bottom:16px;
+ line-height:1.5;
+}
+
+.video-actions{
+ display:flex;
+ justify-content:flex-end;
+}
+
+/* ================= PAYMENT ================= */
+
+.payment-content{
+ padding:20px;
+}
+
+.payment-product{
+ padding:14px;
+ background:#181818;
+ border:1px solid var(--border);
+ border-radius:8px;
+ margin-bottom:18px;
+}
+
+.payment-product strong{
+ display:block;
+ margin-bottom:5px;
+}
+
+.payment-product small{
+ color:#888;
+}
+
+.coupon-entry{
+ padding:14px;
+ background:#151515;
+ border:1px solid var(--border);
+ border-radius:9px;
+ margin-bottom:14px;
+}
+
+.coupon-entry label{
+ display:block;
+ font-size:12px;
+ font-weight:700;
+ margin-bottom:8px;
+ color:#ddd;
+}
+
+.coupon-row{
+ display:flex;
+ gap:8px;
+}
+
+.coupon-row input{
+ flex:1;
+ min-width:0;
+ background:#0c0c0c;
+ color:#fff;
+ border:1px solid #2a2a2a;
+ border-radius:6px;
+ padding:10px 11px;
+ outline:none;
+ text-transform:uppercase;
+}
+
+.coupon-row input:focus{
+ border-color:rgba(255,32,32,.7);
+}
+
+.coupon-row button{
+ background:#242424;
+ color:#fff;
+ border:1px solid #333;
+ border-radius:6px;
+ padding:0 14px;
+ font-weight:800;
+ cursor:pointer;
+}
+
+.coupon-row button:hover{
+ background:var(--red);
+ border-color:var(--red);
+}
+
+.coupon-status{
+ font-size:11px;
+ margin-top:7px;
+ color:#777;
+ min-height:14px;
+}
+
+.coupon-status.success{
+ color:#53d483;
+}
+
+.coupon-status.error{
+ color:#ff6565;
+}
+
+.price-summary{
+ display:flex;
+ justify-content:space-between;
+ margin:10px 0 18px;
+ font-size:13px;
+ color:#aaa;
+}
+
+.price-summary strong{
+ color:#fff;
+ font-size:17px;
+}
+
+.payment-options{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+}
+
+.payment-option{
+ background:#181818;
+ border:1px solid var(--border);
+ border-radius:9px;
+ padding:17px 10px;
+ color:white;
+ cursor:pointer;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:10px;
+ transition:.2s;
+}
+
+.payment-option:hover{
+ border-color:var(--red);
+ transform:translateY(-2px);
+}
+
+.payment-logo{
+ height:36px;
+ max-width:100px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-weight:900;
+ font-size:15px;
+}
+
+.paypal-logo{
+ color:#0070ba;
+}
+
+.binance-logo{
+ color:#f3ba2f;
+}
+
+.gift-logo{
+ color:#ff4b75;
+}
+
+.payment-option span{
+ font-size:12px;
+ color:#ccc;
+}
+
+.payment-note{
+ color:#777;
+ font-size:11px;
+ line-height:1.5;
+ margin-top:16px;
+ text-align:center;
+}
+
+/* ================= TELEGRAM ================= */
+
+.telegram-box{
+ padding:25px;
+ text-align:center;
+}
+
+.telegram-box p{
+ color:#999;
+ font-size:13px;
+ line-height:1.6;
+ margin:10px 0 18px;
+ white-space:pre-line;
+}
+
+.telegram-link{
+ display:inline-block;
+ background:#229ED9;
+ color:white;
+ text-decoration:none;
+ padding:11px 20px;
+ border-radius:7px;
+ font-weight:bold;
+ font-size:13px;
+}
+
+/* ================= PAYPAL FLOATING NOTIFICATIONS ================= */
+
+.paypal-notification{
+ position:fixed;
+ right:18px;
+ bottom:20px;
+ width:min(340px,calc(100% - 36px));
+ background:#151515;
+ border:1px solid rgba(0,112,186,.35);
+ border-radius:11px;
+ padding:12px 14px;
+ z-index:3500;
+ display:flex;
+ align-items:center;
+ gap:10px;
+ box-shadow:0 12px 35px rgba(0,0,0,.5);
+ transform:translateX(130%);
+ opacity:0;
+ transition:.4s;
+}
+
+.paypal-notification.show{
+ transform:translateX(0);
+ opacity:1;
+}
+
+.paypal-mini{
+ width:32px;
+ height:32px;
+ flex:0 0 32px;
+ border-radius:7px;
+ background:#fff;
+ color:#0070ba;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:13px;
+ font-weight:900;
+}
+
+.paypal-notification b{
+ font-size:12px;
+}
+
+.paypal-notification span{
+ display:block;
+ color:#888;
+ font-size:10px;
+ margin-top:3px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ border-top:1px solid var(--border);
+ text-align:center;
+ padding:25px 15px;
+ color:#666;
+ font-size:11px;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:900px){
+
+ .products{
+ grid-template-columns:repeat(2, minmax(0, 1fr));
+ gap:12px;
+}
+
+ .preview{
+  height:190px;
+ }
+}
+
+/* ================= MOBILE CAROUSEL ================= */
+
+@media(max-width:600px){
+
+ header{
+  padding:14px 16px;
+ }
+
+ .hero{
+  padding:45px 18px 25px;
+ }
+
+ .hero h1{
+  font-size:36px;
+ }
+
+ .hero p{
+  font-size:13px;
+ }
+
+ .featured{
+  margin-bottom:30px;
+ }
+
+ .promotion{
+  margin-left:15px;
+  margin-right:15px;
+  margin-bottom:45px;
+ }
+
+ .section{
+  padding-left:15px;
+  padding-right:0;
+ }
+
+ .section-title{
+  padding-right:15px;
+ }
+
+ .products{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:10px;
+}
+
+.card{
+ display:none;
+}
+
+.card.mobile-visible{
+ display:block;
+}
+
+ .products::-webkit-scrollbar{
+  display:none;
+ }
+
+ .card{
+  flex:0 0 78%;
+  scroll-snap-align:start;
+ }
+
+ .preview{
+  height:205px;
+ }
+
+ .card-body{
+  padding:13px;
+ }
+
+ .payment-options{
+  grid-template-columns:1fr;
+ }
+
+ .modal{
+  padding:10px;
+ }
+
+ .modal-box{
+  max-height:94vh;
+  border-radius:10px;
+ }
+
+ .paypal-notification{
+  bottom:15px;
+  right:15px;
+ }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:400px){
+
+ .card{
+  flex:0 0 84%;
+ }
+
+ .preview{
+  height:185px;
+ }
+
+ .card-bottom{
+  gap:5px;
+ }
+
+ .pay-card-btn{
+  min-width:65px;
+  padding:0 10px;
+  font-size:10px;
+ }
+
+ .buy{
+  width:32px;
+  height:32px;
+ }
+
+ .price{
+  font-size:14px;
+ }
+}
+.mobile-pagination{
+ display:none;
+ justify-content:center;
+ align-items:center;
+ gap:14px;
+ margin-top:22px;
+}
+
+.mobile-pagination button{
+ width:38px;
+ height:38px;
+ border:1px solid var(--border);
+ background:#151515;
+ color:#fff;
+ border-radius:8px;
+ font-size:20px;
+ cursor:pointer;
+}
+
+.mobile-pagination button:hover{
+ background:var(--red);
+ border-color:var(--red);
+}
+
+.mobile-pagination span{
+ min-width:45px;
+ text-align:center;
+ font-size:12px;
+ font-weight:bold;
+ color:#aaa;
+}
+
+@media(max-width:600px){
+ .mobile-pagination{
+  display:flex;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+ <div class="logo">
+  <span>HOT</span>CONTENT
+ </div>
+
+ <div class="header-right">
+
+  <div
+   class="cart"
+   onclick="toggleCart()"
+   aria-label="Shopping cart"
+   title="Shopping cart"
+  >
+   🛒
+   <div class="cart-count" id="cartCount">0</div>
+  </div>
+
+ </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+ <h1>
+  HOT <span>CONTENT<span>
+ </h1>
+
+ <p>
+  Access the  best adult and chiildren's content, with the best updates and lifetime access.
+ </p>
+
+</section>
+
+
+<!-- ================= FEATURED ================= -->
+
+<section class="featured">
+
+ <div class="featured-inner">
+  🔥 <span>FEATURED TODAY:</span>
+  Use the coupon for any folder
+ </div>
+
+</section>
+
+
+<!-- ================= PROMOTION ================= -->
+
+<section class="promotion">
+
+ <h2>🎁 LIMITED TIME OFFER</h2>
+
+ <p>Use coupon</p>
+
+ <div class="coupon">
+  🔥 HOT10
+ </div>
+
+ <p>
+  Get <strong>10% OFF</strong> your order.
+ </p>
+
+ <div class="countdown">
+  Offer ends in:
+  <span id="countdown">02d 00h 00m 00s</span>
+ </div>
+
+ <a
+  class="claim"
+  href="https://t.me/Pleasurevip11"
+  target="_blank"
+  rel="noopener"
+ >
+  Claim Now
+ </a>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section">
+
+ <div class="section-title">
+
+  <h2>🔥 Popular Packs</h2>
+
+  <span
+   class="view-all"
+   id="viewAllBtn"
+   onclick="toggleProducts()"
+  >
+   VIEW ALL
+  </span>
+
+ </div>
+
+
+ <div class="products" id="productsContainer">
+
+
+  <!-- =====================================================
+       PRODUCT 01
+
+       PARA EDITAR:
+       name       = nome
+       price      = preço
+       video      = LINK DO SEU VÍDEO
+       description= descrição
+       tag        = HOT / NEW / TOP / BEST
+       ===================================================== -->
+
+  <article class="card">
+
+   <div
+    class="preview"
+    onclick="openPreview(0)"
+   >
+
+    <span class="tag">HOT</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://www.image2url.com/r2/default/videos/1787739632962-81badf9e-bdb7-4a30-8843-c33d367acbc8.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Ivanka and Bro</h3>
+
+    <p>
+     Ivanka fucking with her brother.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">
+      $35
+     </span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       title="Add to cart"
+       onclick="addToCart(0)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(0)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 02 -->
+
+  <article class="card">
+
+   <div
+    class="preview"
+    onclick="openPreview(1)"
+   >
+
+    <span class="tag">NEW</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://www.image2url.com/r2/default/videos/1787739919893-0fd971dd-7628-47f3-951e-b998d03e3b9b.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Amelia Blonde</h3>
+
+    <p>
+     Hot teen with 11 years old.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">
+      $25
+     </span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(1)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(1)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 03 -->
+
+  <article class="card">
+
+   <div
+    class="preview"
+    onclick="openPreview(2)"
+   >
+
+    <span class="tag">TOP</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://www.image2url.com/r2/default/videos/1787740100614-87eee7ab-6425-4c85-98ab-0672d866db90.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Ayumi Girl</h3>
+
+    <p>
+     One of our most popular packs.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">
+      $25
+     </span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(2)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(2)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 04 -->
+
+  <article class="card">
+
+   <div
+    class="preview"
+    onclick="openPreview(3)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://www.image2url.com/r2/default/videos/1787736823761-35637fbb-0733-4a66-993f-e11917df6590.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Lizzy and Brother</h3>
+
+    <p>
+     Lizzy fucking with her brother.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">
+      $30
+     </span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(3)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(3)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- =====================================================
+       PRODUCT 05
+       COMEÇA OCULTO NO DESKTOP/MOBILE.
+       VIEW ALL MOSTRA.
+       ===================================================== -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(4)"
+   >
+
+    <span class="tag">HOT</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://www.image2url.com/r2/default/videos/1787740602523-3507943a-6d6f-4e52-a32c-f20db3da0d9d.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Mom and Son</h3>
+
+    <p>
+     Mom with her son in insane sex, hot mom.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$25</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(4)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(4)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 06 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(5)"
+   >
+
+    <span class="tag">NEW</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787742693415-e1603dae-bff0-4297-89d4-7962ec40ebdb.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>CP1</h3>
+
+    <p>
+     Cp1 with hard childs.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$25</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(5)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(5)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 07 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(6)"
+   >
+
+    <span class="tag">TOP</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787742806394-ef241db7-af20-47b3-842b-819d7641b4c5.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>CP2</h3>
+
+    <p>
+     Young childs fucking with fathers, brothers and grandfathers.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$30</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(6)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(6)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 08 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(7)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787743316531-87d9b070-b816-41c5-b93f-6f5ec3fa83b2.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Teens and Dogs</h3>
+
+    <p>
+     Young teens fucking with Big Dogs.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(7)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(7)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 09 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(8)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787743719002-4b5356d8-7cd3-4189-a337-9e67b3a6a932.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Emmi Seller</h3>
+
+    <p>
+     Solo Teen.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$30</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(8)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(8)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 10 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(9)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787827263471-c137c784-777d-4c10-9db7-f08a438651fa.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Monkey App</h3>
+
+    <p>
+     Young Teens on MonkeyApp.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(9)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(9)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 11 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(10)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787827392835-bf902750-f50e-483b-ab02-65b7b2a6f274.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>HighSchool</h3>
+
+    <p>
+     Teen HighSchool
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$30</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(10)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(10)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 12 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(11)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787827561591-2cfd8328-d18c-4868-b818-e042eb746d39.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Snap Folder</h3>
+
+    <p>
+     Various Teen Fucking.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(11)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(11)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 13 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(12)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787826807444-e3fdd64b-a9c9-47ba-8346-10cbeb7fb938.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Ximena Folder</h3>
+
+    <p>
+     Solo Teen.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$30</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(12)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(12)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+  <!-- PRODUCT 14 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(13)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787826898172-f142402a-25f8-4710-8786-6b35b04de063.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Father and Daughter</h3>
+
+    <p>
+     Father fucking daughter.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$40</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(13)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(13)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 15 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(14)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787828862145-ab750a81-b22b-4539-9078-f42d13d1419c.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>DarkZadie</h3>
+
+    <p>
+     Solo young teen.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$40</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(14)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(14)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 16 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(15)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787829046609-eff90b43-ae85-490f-bbbb-e50993905035.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Young Teens</h3>
+
+    <p>
+     Young Teens Squirt And Fuckking.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(15)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(15)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 17 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(16)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787829164904-98817e20-ca0f-463c-af5f-3fc4649b83b5.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Abbi Teen</h3>
+
+    <p>
+     BlackMail Young Teen.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(16)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(16)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 18 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(17)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787829340817-1d06c222-1b42-436c-a528-b359f6dd1e6c.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Ava Teen</h3>
+
+    <p>
+     Young Solo Teen BlackMail.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(17)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(17)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 19 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(18)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787828548087-d80ea96d-36f5-49a0-b3b8-e556e39f352f.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Izzy and Dog</h3>
+
+    <p>
+     Izzy fucking with her DOG.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(18)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(18)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 20 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(19)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787828655967-d531b003-164f-4fb8-8a18-54e0609852e8.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>CP PS</h3>
+
+    <p>
+     Child Porn.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$35</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(19)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(19)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 21 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(20)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787829699917-bb485ac3-41d2-4f8f-ac89-9c6ed9ad4472.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>CP 3</h3>
+
+    <p>
+     Child Porn.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$25</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(20)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(20)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+  <!-- PRODUCT 22 -->
+
+  <article class="card hidden-product">
+
+   <div
+    class="preview"
+    onclick="openPreview(21)"
+   >
+
+    <span class="tag">BEST</span>
+
+    <video
+     muted
+     playsinline
+     preload="metadata"
+     src="https://videotourl.com/videos/1787829871089-92fd5ae4-2d82-4a7e-9048-cc756ac0f4ce.mp4"
+    ></video>
+
+    <div class="preview-overlay">
+     <div class="play">▶</div>
+    </div>
+
+   </div>
+
+   <div class="card-body">
+
+    <h3>Real Incest</h3>
+
+    <p>
+     incest.
+    </p>
+
+    <div class="card-bottom">
+
+     <span class="price">$40</span>
+
+     <div class="card-actions">
+
+      <button
+       class="buy"
+       onclick="addToCart(21)"
+      >
+       🛒
+      </button>
+
+      <button
+       class="pay-card-btn"
+       onclick="openPayment(21)"
+      >
+       PAY
+      </button>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </article>
+
+
+
+
+ </div>
+ <div class="mobile-pagination">
+    <button id="prevPage">‹</button>
+    <span id="pageInfo">1 / 2</span>
+    <button id="nextPage">›</button>
+</div>
+
+</section>
+
+
+<!-- ================= TESTIMONIAL ================= -->
+
+<section class="testimonial-section">
+
+ <div
+  class="testimonial"
+  id="testimonial"
+ >
+  "Fast delivery and great service."
+ </div>
+
+ <div
+  class="testimonial-name"
+  id="testimonialName"
+ >
+  — Michael Turner, USA
+ </div>
+
+</section>
+
+
+<!-- ================= VIDEO MODAL ================= -->
+
+<div
+ class="modal"
+ id="previewModal"
+ onclick="closePreviewOutside(event)"
+>
+
+ <div class="modal-box">
+
+  <div class="modal-header">
+
+   <h3 id="previewTitle">
+    Premium Pack
+   </h3>
+
+   <button
+    class="modal-close"
+    onclick="closePreview()"
+   >
+    ×
+   </button>
+
+  </div>
+
+  <div class="video-wrap">
+
+   <video
+    id="previewVideo"
+    controls
+    playsinline
+    preload="metadata"
+   ></video>
+
+  </div>
+
+  <div class="video-info">
+
+   <h2 id="videoTitle">
+    Premium Pack
+   </h2>
+
+   <p id="videoDescription">
+    Preview the product before choosing a payment method.
+   </p>
+
+   <div class="video-actions">
+
+    <button
+     class="pay-btn"
+     onclick="payFromPreview()"
+    >
+     💳 PAY NOW
+    </button>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</div>
+
+
+<!-- ================= PAYMENT MODAL ================= -->
+
+<div
+ class="modal"
+ id="paymentModal"
+ onclick="closePaymentOutside(event)"
+>
+
+ <div class="modal-box">
+
+  <div class="modal-header">
+
+   <h3>
+    Choose Payment Method
+   </h3>
+
+   <button
+    class="modal-close"
+    onclick="closePayment()"
+   >
+    ×
+   </button>
+
+  </div>
+
+  <div class="payment-content">
+
+   <div class="payment-product">
+
+    <strong id="paymentProduct">
+     Premium Pack #01
+    </strong>
+
+    <small>
+     Amount:
+     $<span id="paymentPrice">15.00</span>
+    </small>
+
+   </div>
+
+
+   <div class="coupon-entry">
+
+    <label for="couponInput">
+     Have a coupon?
+    </label>
+
+    <div class="coupon-row">
+
+     <input
+      id="couponInput"
+      type="text"
+      maxlength="30"
+      placeholder="Enter your coupon code"
+     >
+
+     <button
+      type="button"
+      onclick="applyCoupon()"
+     >
+      APPLY
+     </button>
+
+    </div>
+
+    <div
+     id="couponStatus"
+     class="coupon-status"
+    ></div>
+
+   </div>
+
+
+   <div class="price-summary">
+
+    <span>
+     Final total
+    </span>
+
+    <strong>
+     $<span id="paymentFinalPrice">15.00</span>
+    </strong>
+
+   </div>
+
+
+   <div class="payment-options">
+
+    <button
+     class="payment-option"
+     onclick="startTelegramPayment('PayPal')"
+    >
+
+     <div class="payment-logo paypal-logo">
+      PAYPAL
+     </div>
+
+     <span>
+      PayPal
+     </span>
+
+    </button>
+
+
+    <button
+     class="payment-option"
+     onclick="startTelegramPayment('Binance')"
+    >
+
+     <div class="payment-logo binance-logo">
+      ◆ BINANCE
+     </div>
+
+     <span>
+      Binance
+     </span>
+
+    </button>
+
+
+    <button
+     class="payment-option"
+     onclick="startTelegramPayment('Gift Card')"
+    >
+
+     <div class="payment-logo gift-logo">
+      🎁 GIFT CARD
+     </div>
+
+     <span>
+      Gift Card
+     </span>
+
+    </button>
+
+   </div>
+
+
+   <div class="payment-note">
+
+    Select a payment method to continue through Telegram.
+    Your products, total amount and selected payment method
+    will be included automatically.
+
+   </div>
+
+  </div>
+
+ </div>
+
+</div>
+
+
+<!-- ================= TELEGRAM MODAL ================= -->
+
+<div
+ class="modal"
+ id="telegramModal"
+>
+
+ <div class="modal-box">
+
+  <div class="modal-header">
+
+   <h3>
+    Continue on Telegram
+   </h3>
+
+   <button
+    class="modal-close"
+    onclick="closeTelegram()"
+   >
+    ×
+   </button>
+
+  </div>
+
+  <div class="telegram-box">
+
+   <p id="telegramMessage"></p>
+
+   <a
+    class="telegram-link"
+    id="telegramLink"
+    href="index.html#"
+    target="_blank"
+    rel="noopener"
+   >
+    Open Telegram
+   </a>
+
+  </div>
+
+ </div>
+
+</div>
+
+
+<!-- ================= PAYPAL NOTIFICATION ================= -->
+
+<div
+ class="paypal-notification"
+ id="paypalNotification"
+>
+
+ <div class="paypal-mini">
+  P
+ </div>
+
+ <div>
+
+  <b id="paypalNotificationTitle">
+   Payment received
+  </b>
+
+  <span id="paypalNotificationText">
+   A customer just purchased a premium pack.
+  </span>
+
+ </div>
+
+</div>
+
+
+<!-- ================= CART ================= -->
+
+<div
+ class="cart-panel"
+ id="cartPanel"
+>
+
+ <div class="cart-header">
+
+  <h2>
+   Your Cart
+  </h2>
+
+  <button
+   class="close-cart"
+   onclick="toggleCart()"
+  >
+   ×
+  </button>
+
+ </div>
+
+
+ <div
+  class="cart-items"
+  id="cartItems"
+ >
+  <div class="cart-empty">
+   Your cart is empty.
+  </div>
+ </div>
+
+
+ <div class="cart-total">
+
+  <div class="cart-total-row">
+
+   <span>
+    Total
+   </span>
+
+   <strong>
+    $<span id="cartTotal">0.00</span>
+   </strong>
+
+  </div>
+
+  <button
+   class="checkout"
+   onclick="checkoutCart()"
+  >
+   Proceed to Checkout
+  </button>
+
+ </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+ © 2026 HotContent. All rights reserved.
+</footer>
+
+
+<script>
+
+/* =========================================================
+   PRODUCT DATA
+
+   É AQUI QUE VOCÊ VAI ORGANIZAR OS SEUS PRODUTOS.
+
+   Para cada produto:
+
+   name        = nome
+   price       = preço
+   video       = LINK DIRETO DO VÍDEO
+   description = descrição
+   tag         = etiqueta
+   ========================================================= */
+
+const products = [
+
+ {
+  name:"Ivanka and Bro",
+  price:35,
+  video:"https://www.image2url.com/r2/default/videos/1787739632962-81badf9e-bdb7-4a30-8843-c33d367acbc8.mp4",
+  description:"Ivanka Fucking with her brother.",
+  tag:"HOT"
+ },
+
+ {
+  name:"Amelia Blonde",
+  price:30,
+  video:"https://www.image2url.com/r2/default/videos/1787739919893-0fd971dd-7628-47f3-951e-b998d03e3b9b.mp4",
+  description:"HOT TEEN WITH 11 YEARS OLD.",
+  tag:"NEW"
+ },
+
+ {
+  name:"Ayumi Girl",
+  price:25,
+  video:"https://www.image2url.com/r2/default/videos/1787740100614-87eee7ab-6425-4c85-98ab-0672d866db90.mp4",
+  description:"One of our most popular packs.",
+  tag:"TOP"
+ },
+
+ {
+  name:"Lizzy and Bro",
+  price:30,
+  video:"https://www.image2url.com/r2/default/videos/1787736823761-35637fbb-0733-4a66-993f-e11917df6590.mp4",
+  description:"Lizzy fucking and sucking her brother John, full incest.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Mom and Son",
+  price:25,
+  video:"https://www.image2url.com/r2/default/videos/1787740602523-3507943a-6d6f-4e52-a32c-f20db3da0d9d.mp4",
+  description:"Mom fucking her son, full incest with boy.",
+  tag:"HOT"
+ },
+
+ {
+  name:"CP1",
+  price:25,
+  video:"https://videotourl.com/videos/1787742693415-e1603dae-bff0-4297-89d4-7962ec40ebdb.mp4",
+  description:"CP1.",
+  tag:"NEW"
+ },
+
+ {
+  name:"CP2",
+  price:30,
+  video:"https://videotourl.com/videos/1787742806394-ef241db7-af20-47b3-842b-819d7641b4c5.mp4",
+  description:"Popular cp.",
+  tag:"TOP"
+ },
+
+ {
+  name:"Teens and Dogs",
+  price:30,
+  video:"https://videotourl.com/videos/1787825984983-a6e7b32d-58f5-483c-b41d-e61748965fed.mp4",
+  description:"Teens fucking with dogs.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Emmi Sellers",
+  price:30,
+  video:"https://videotourl.com/videos/1787743719002-4b5356d8-7cd3-4189-a337-9e67b3a6a932.mp4",
+  description:"Young SEX solo teen.",
+  tag:"BEST"
+ },
+
+ {
+  name:"MonkeyApp",
+  price:35,
+  video:"https://videotourl.com/videos/1787827850323-bfa02e50-14f1-480c-9765-85b7d05f9c34.mp4",
+  description:"Teens on MonkeyApp.",
+  tag:"BEST"
+ },
+
+ {
+  name:"HighSchool",
+  price:30,
+  video:"https://videotourl.com/videos/1787827923048-fb2c7a84-d9c7-42fd-8ef4-c4e94e5ac606.mp4",
+  description:"HighSchool Teens.",
+  tag:"BEST"
+ },
+
+ {
+  name:"SnapFolder",
+  price:35,
+  video:"https://videotourl.com/videos/1787828024040-277a96e1-7a52-4d21-ace6-4bf92950a0f5.mp4",
+  description:"Snapchat girls hacked.",
+  tag:"BEST"
+ },
+
+  {
+  name:"Ximena Folder",
+  price:30,
+  video:"https://videotourl.com/videos/1787828128472-33c082fb-987d-4294-9da3-1a98de7b0f75.mp4",
+  description:"Ximena Folder.",
+  tag:"BEST"
+ },
+
+  {
+  name:"Father And Daughter",
+  price:25,
+  video:"https://videotourl.com/videos/1787828228291-8bad74ab-a5d0-4b3b-848b-86beeb8d4260.mp4",
+  description:"Father and Daughter.",
+  tag:"BEST"
+ },
+
+ {
+  name:"DarkZadie",
+  price:40,
+  video:"https://videotourl.com/videos/1787828295390-f4e6e782-30e0-4d41-9ba3-7717c99bdab8.mp4",
+  description:"Young Solo Teen.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Young Teens",
+  price:30,
+  video:"https://videotourl.com/videos/1787828407318-15b5a6fc-b9f4-4490-a66d-d164399eeae2.mp4",
+  description:"Young Teens Squirt, and fucking.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Abbi Teen",
+  price:35,
+  video:"https://videotourl.com/videos/1787828457760-ca97b2e1-163e-4042-bc69-55135ab85f37.mp4",
+  description:"Young Teen Squirt, and fucking.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Ava Folder",
+  price:35,
+  video:"https://videotourl.com/videos/1787828515216-fbb99639-92f9-4b82-ad52-b768c8a7a776.mp4",
+  description:"Young Teen Squirt, and fucking.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Izzy and Dog",
+  price:25,
+  video:"https://videotourl.com/videos/1787828548087-d80ea96d-36f5-49a0-b3b8-e556e39f352f.mp4",
+  description:"Izzy Fucking with her dog.",
+  tag:"BEST"
+ },
+
+ {
+  name:"CP PS",
+  price:30,
+  video:"https://videotourl.com/videos/1787828655967-d531b003-164f-4fb8-8a18-54e0609852e8.mp4",
+  description:"Child porn.",
+  tag:"BEST"
+ },
+
+ {
+  name:"CP 3",
+  price:25,
+  video:"https://videotourl.com/videos/1787828702085-e97d1d23-a5ef-4fa8-9bb7-04d1a89800fc.mp4",
+  description:"Child Porn.",
+  tag:"BEST"
+ },
+
+ {
+  name:"Real Incest",
+  price:40,
+  video:"https://videotourl.com/videos/1787829871089-92fd5ae4-2d82-4a7e-9048-cc756ac0f4ce.mp4",
+  description:"Incest.",
+  tag:"BEST"
+ }
+
+];
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let selectedProduct = null;
+
+let activeCoupon = "";
+
+let discountRate = 0;
+
+let cart = [];
+
+let productsExpanded = false;
+
+
+/* =========================================================
+   PREÇO FINAL
+   ========================================================= */
+
+function getFinalPrice(){
+
+ if(!selectedProduct){
+  return 0;
+ }
+
+ return selectedProduct.price * (1 - discountRate);
+
+}
+
+
+/* =========================================================
+   REFRESH PAYMENT PRICE
+   ========================================================= */
+
+function refreshPaymentPrice(){
+
+ const el =
+  document.getElementById("paymentFinalPrice");
+
+ if(el){
+  el.textContent =
+   getFinalPrice().toFixed(2);
+ }
+
+}
+
+
+/* =========================================================
+   CUPOM
+   ========================================================= */
+
+function applyCoupon(){
+
+ const input =
+  document.getElementById("couponInput");
+
+ const status =
+  document.getElementById("couponStatus");
+
+ const code =
+  input.value.trim().toUpperCase();
+
+ activeCoupon = "";
+
+ discountRate = 0;
+
+
+ if(code === "HOT10"){
+
+  activeCoupon = code;
+
+  discountRate = .10;
+
+  status.textContent =
+   "Coupon applied — 10% discount.";
+
+  status.className =
+   "coupon-status success";
+
+ }else{
+
+  status.textContent =
+   code
+    ? "Invalid or expired coupon."
+    : "Enter a coupon code.";
+
+  status.className =
+   "coupon-status error";
+
+ }
+
+
+ refreshPaymentPrice();
+
+}
+
+
+/* =========================================================
+   PREVIEW DO VÍDEO
+   ========================================================= */
+
+function openPreview(index){
+
+ selectedProduct =
+  products[index];
+
+
+ document.getElementById(
+  "previewTitle"
+ ).textContent =
+  selectedProduct.name;
+
+
+ document.getElementById(
+  "videoTitle"
+ ).textContent =
+  selectedProduct.name;
+
+
+ document.getElementById(
+  "videoDescription"
+ ).textContent =
+  selectedProduct.description;
+
+
+ const video =
+  document.getElementById("previewVideo");
+
+
+ video.pause();
+
+ video.src =
+  selectedProduct.video;
+
+ video.load();
+
+
+ document.getElementById(
+  "previewModal"
+ ).classList.add("active");
+
+}
+
+
+function closePreview(){
+
+ const video =
+  document.getElementById("previewVideo");
+
+ video.pause();
+
+ video.removeAttribute("src");
+
+ video.load();
+
+ document.getElementById(
+  "previewModal"
+ ).classList.remove("active");
+
+}
+
+
+function closePreviewOutside(e){
+
+ if(e.target.id === "previewModal"){
+
+  closePreview();
+
+ }
+
+}
+
+
+function payFromPreview(){
+
+ if(!selectedProduct){
+  return;
+ }
+
+ closePreview();
+
+ openPayment(
+  products.indexOf(selectedProduct)
+ );
+
+}
+
+
+/* =========================================================
+   PAYMENT
+   ========================================================= */
+
+function openPayment(index){
+
+ selectedProduct =
+  products[index];
+
+
+ activeCoupon = "";
+
+ discountRate = 0;
+
+
+ document.getElementById(
+  "paymentProduct"
+ ).textContent =
+  selectedProduct.name;
+
+
+ document.getElementById(
+  "paymentPrice"
+ ).textContent =
+  selectedProduct.price.toFixed(2);
+
+
+ document.getElementById(
+  "paymentFinalPrice"
+ ).textContent =
+  selectedProduct.price.toFixed(2);
+
+
+ document.getElementById(
+  "couponInput"
+ ).value = "";
+
+
+ document.getElementById(
+  "couponStatus"
+ ).textContent = "";
+
+
+ document.getElementById(
+  "couponStatus"
+ ).className =
+  "coupon-status";
+
+
+ document.getElementById(
+  "paymentModal"
+ ).classList.add("active");
+
+}
+
+
+function closePayment(){
+
+ document.getElementById(
+  "paymentModal"
+ ).classList.remove("active");
+
+}
+
+
+function closePaymentOutside(e){
+
+ if(e.target.id === "paymentModal"){
+
+  closePayment();
+
+ }
+
+}
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+function addToCart(index){
+
+ const product =
+  products[index];
+
+ cart.push({
+  name:product.name,
+  price:product.price,
+  index:index
+ });
+
+ updateCart();
+
+ toggleCart();
+
+}
+
+
+/* =========================================================
+   ATUALIZAR CARRINHO
+   ========================================================= */
+
+function updateCart(){
+
+ const items =
+  document.getElementById("cartItems");
+
+ const count =
+  document.getElementById("cartCount");
+
+ const total =
+  document.getElementById("cartTotal");
+
+
+ count.textContent =
+  cart.length;
+
+
+ if(!cart.length){
+
+  items.innerHTML = `
+   <div class="cart-empty">
+    Your cart is empty.
+   </div>
+  `;
+
+  total.textContent =
+   "0.00";
+
+  return;
+
+ }
+
+
+ items.innerHTML =
+  cart.map((item,index)=>`
+
+   <div class="cart-item">
+
+    <div class="cart-item-info">
+
+     <div class="cart-item-name">
+      ${item.name}
+     </div>
+
+     <div class="cart-item-price">
+      $${item.price.toFixed(2)}
+     </div>
+
+    </div>
+
+    <button
+     class="remove-item"
+     onclick="removeFromCart(${index})"
+     title="Remove"
+    >
+     ×
+    </button>
+
+   </div>
+
+  `).join("");
+
+
+ const totalValue =
+  cart.reduce(
+   (sum,item)=>sum + item.price,
+   0
+  );
+
+
+ total.textContent =
+  totalValue.toFixed(2);
+
+}
+
+
+/* =========================================================
+   REMOVER DO CARRINHO
+   ========================================================= */
+
+function removeFromCart(index){
+
+ cart.splice(index,1);
+
+ updateCart();
+
+}
+
+
+/* =========================================================
+   ABRIR / FECHAR CARRINHO
+   ========================================================= */
+
+function toggleCart(){
+
+ document.getElementById(
+  "cartPanel"
+ ).classList.toggle("active");
+
+}
+
+
+/* =========================================================
+   CHECKOUT DO CARRINHO
+
+   Aqui o carrinho pega todos os produtos,
+   soma tudo e abre o MESMO MODAL de pagamento.
+   ========================================================= */
+
+function checkoutCart(){
+
+ if(!cart.length){
+
+  alert("Your cart is empty.");
+
+  return;
+
+ }
+
+
+ selectedProduct = {
+
+  name:
+   cart
+    .map(item=>item.name)
+    .join(" + "),
+
+  price:
+   cart.reduce(
+    (sum,item)=>sum + item.price,
+    0
+   ),
+
+  description:
+   "Multiple premium products.",
+
+  video:
+   cart[0]
+    ? products[cart[0].index].video
+    : ""
+
+ };
+
+
+ activeCoupon = "";
+
+ discountRate = 0;
+
+
+ document.getElementById(
+  "paymentProduct"
+ ).textContent =
+  selectedProduct.name;
+
+
+ document.getElementById(
+  "paymentPrice"
+ ).textContent =
+  selectedProduct.price.toFixed(2);
+
+
+ document.getElementById(
+  "paymentFinalPrice"
+ ).textContent =
+  selectedProduct.price.toFixed(2);
+
+
+ document.getElementById(
+  "couponInput"
+ ).value = "";
+
+
+ document.getElementById(
+  "couponStatus"
+ ).textContent = "";
+
+
+ document.getElementById(
+  "couponStatus"
+ ).className =
+  "coupon-status";
+
+
+ toggleCart();
+
+
+ document.getElementById(
+  "paymentModal"
+ ).classList.add("active");
+
+}
+
+
+/* =========================================================
+   TELEGRAM PAYMENT
+   ========================================================= */
+
+function startTelegramPayment(method){
+
+ if(!selectedProduct){
+  return;
+ }
+
+
+ let cartMessage = "";
+
+
+ /*
+  Se veio do carrinho,
+  lista todos os produtos.
+ */
+
+ if(cart.length){
+
+  cartMessage =
+   cart.map(
+    item =>
+     "• " +
+     item.name +
+     " — $" +
+     item.price.toFixed(2)
+   ).join("\n");
+
+ }else{
+
+  cartMessage =
+   "• " +
+   selectedProduct.name +
+   " — $" +
+   selectedProduct.price.toFixed(2);
+
+ }
+
+
+ const message =
+ `I want to buy this using ${method}.
+
+Payment method: ${method}
+
+Products:
+${cartMessage}
+
+Original total: $${selectedProduct.price.toFixed(2)}
+${activeCoupon
+ ? `Coupon: ${activeCoupon} (-${Math.round(discountRate*100)}%)`
+ : "Coupon: None"}
+
+Final amount: $${getFinalPrice().toFixed(2)}
+
+Delivery format: LINK
+
+Website:
+`;
+
+
+ const telegramUrl =
+  "https://t.me/Pleasurevip11?text=" +
+  encodeURIComponent(message);
+
+
+ document.getElementById(
+  "telegramMessage"
+ ).textContent =
+  message;
+
+
+ document.getElementById(
+  "telegramLink"
+ ).href =
+  telegramUrl;
+
+
+ closePayment();
+
+
+ document.getElementById(
+  "telegramModal"
+ ).classList.add("active");
+
+
+ /*
+  Abre Telegram automaticamente.
+ */
+
+ setTimeout(()=>{
+
+  window.open(
+   telegramUrl,
+   "_blank"
+  );
+
+ },250);
+
+}
+
+
+/* =========================================================
+   TELEGRAM CLOSE
+   ========================================================= */
+
+function closeTelegram(){
+
+ document.getElementById(
+  "telegramModal"
+ ).classList.remove("active");
+
+}
+
+
+/* =========================================================
+   VIEW ALL
+   ========================================================= */
+
+function toggleProducts(){
+
+ const hiddenProducts =
+  document.querySelectorAll(
+   ".hidden-product"
+  );
+
+
+ productsExpanded =
+  !productsExpanded;
+
+
+ hiddenProducts.forEach(card=>{
+
+  card.style.display =
+   productsExpanded
+    ? ""
+    : "none";
+
+ });
+
+
+ document.getElementById(
+  "viewAllBtn"
+ ).textContent =
+  productsExpanded
+   ? "SHOW LESS"
+   : "VIEW ALL";
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+const countdownEnd =
+ Date.now() +
+ (2*24*60*60*1000);
+
+
+function updateCountdown(){
+
+ let difference =
+  countdownEnd -
+  Date.now();
+
+
+ if(difference <= 0){
+
+  document.getElementById(
+   "countdown"
+  ).textContent =
+   "EXPIRED";
+
+  return;
+
+ }
+
+
+ const days =
+  Math.floor(
+   difference /
+   (1000*60*60*24)
+  );
+
+
+ const hours =
+  Math.floor(
+   (difference %
+   (1000*60*60*24)) /
+   (1000*60*60)
+  );
+
+
+ const minutes =
+  Math.floor(
+   (difference %
+   (1000*60*60)) /
+   (1000*60)
+  );
+
+
+ const seconds =
+  Math.floor(
+   (difference %
+   (1000*60)) /
+   1000
+  );
+
+
+ document.getElementById(
+  "countdown"
+ ).textContent =
+
+  String(days).padStart(2,"0")
+  +"d "+
+
+  String(hours).padStart(2,"0")
+  +"h "+
+
+  String(minutes).padStart(2,"0")
+  +"m "+
+
+  String(seconds).padStart(2,"0")
+  +"s";
+
+}
+
+
+setInterval(
+ updateCountdown,
+ 1000
+);
+
+updateCountdown();
+
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+
+const testimonials = [
+
+ ["Fast delivery and great service.","Michael Turner, USA"],
+
+ ["Great collection and smooth checkout.","James Walker, United Kingdom"],
+
+ ["Exactly what I was looking for.","Ethan Brooks, USA"],
+
+ ["Fast service and excellent quality.","Oliver Mason, United Kingdom"],
+
+ ["The delivery was incredibly quick.","Daniel Carter, USA"],
+
+ ["One of the best collections I've found.","Ryan Mitchell, Canada"],
+
+ ["Very easy to order and everything was delivered fast.","Jack Wilson, United Kingdom"],
+
+ ["Great experience from start to finish.","Noah Anderson, USA"],
+
+ ["The quality exceeded my expectations.","Lucas Bennett, Australia"],
+
+ ["Fast, simple and reliable.","William Parker, United Kingdom"]
+
+];
+
+
+let testimonialIndex = 0;
+
+
+setInterval(()=>{
+
+ const box =
+  document.getElementById(
+   "testimonial"
+  );
+
+ const name =
+  document.getElementById(
+   "testimonialName"
+  );
+
+
+ box.style.opacity = "0";
+
+
+ setTimeout(()=>{
+
+  testimonialIndex =
+   (testimonialIndex + 1)
+   % testimonials.length;
+
+
+  box.textContent =
+   '"' +
+   testimonials[testimonialIndex][0] +
+   '"';
+
+
+  name.textContent =
+   "— " +
+   testimonials[testimonialIndex][1];
+
+
+  box.style.opacity = "1";
+
+ },300);
+
+},5000);
+
+
+/* =========================================================
+   PAYPAL FLOATING NOTIFICATIONS
+   ========================================================= */
+
+const fakePayments = [
+
+ ["Payment received","A customer just purchased Premium Pack #01."],
+
+ ["PayPal payment","Premium Pack #03 was just purchased."],
+
+ ["Payment received","A customer purchased a premium collection."],
+
+ ["New order","Premium Pack #02 was just ordered."],
+
+ ["PayPal payment","A new premium order was completed."],
+
+ ["Payment received","Premium Pack #04 was just purchased."]
+
+];
+
+
+let paypalIndex = 0;
+
+
+function showPaypalNotification(){
+
+ const box =
+  document.getElementById(
+   "paypalNotification"
+  );
+
+
+ const title =
+  document.getElementById(
+   "paypalNotificationTitle"
+  );
+
+
+ const text =
+  document.getElementById(
+   "paypalNotificationText"
+  );
+
+
+ const current =
+  fakePayments[paypalIndex];
+
+
+ title.textContent =
+  current[0];
+
+
+ text.textContent =
+  current[1];
+
+
+ box.classList.add("show");
+
+
+ setTimeout(()=>{
+
+  box.classList.remove("show");
+
+ },4500);
+
+
+ paypalIndex =
+  (paypalIndex + 1)
+  % fakePayments.length;
+
+}
+
+
+/*
+ Mostra a primeira
+ notificação depois de alguns segundos.
+*/
+
+setTimeout(
+ showPaypalNotification,
+ 5000
+);
+
+
+/*
+ Depois continua aparecendo
+ de forma automática.
+*/
+
+setInterval(
+ showPaypalNotification,
+ 12000
+);
+
+
+/* =========================================================
+   VIDEO HOVER NO DESKTOP
+   ========================================================= */
+
+document
+ .querySelectorAll(".preview video")
+ .forEach(video=>{
+
+  const preview =
+   video.closest(".preview");
+
+
+  preview.addEventListener(
+   "mouseenter",
+   ()=>{
+
+    video.play()
+     .catch(()=>{});
+
+   }
+  );
+
+
+  preview.addEventListener(
+   "mouseleave",
+   ()=>{
+
+    video.pause();
+
+    video.currentTime = 0;
+
+   }
+  );
+
+ });
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+   ========================================================= */
+
+updateCart();
+document.addEventListener("DOMContentLoaded", function(){
+
+    document.querySelectorAll(".products .card").forEach(function(card){
+        card.style.display = "";
+    });
+
+});
+/* ================= MOBILE PAGINATION ================= */
+
+let mobilePage = 1;
+const cardsPerMobilePage = 9;
+
+function updateMobilePagination(){
+
+ const cards = [...document.querySelectorAll(".products .card")];
+
+ const totalPages = Math.max(
+  1,
+  Math.ceil(cards.length / cardsPerMobilePage)
+ );
+
+ if(mobilePage > totalPages){
+  mobilePage = totalPages;
+ }
+
+ const start = (mobilePage - 1) * cardsPerMobilePage;
+ const end = start + cardsPerMobilePage;
+
+ cards.forEach((card,index)=>{
+  card.classList.toggle(
+   "mobile-visible",
+   index >= start && index < end
+  );
+ });
+
+ document.getElementById("pageInfo").textContent =
+  mobilePage + " / " + totalPages;
+
+ document.getElementById("prevPage").disabled =
+  mobilePage === 1;
+
+ document.getElementById("nextPage").disabled =
+  mobilePage === totalPages;
+}
+
+document.getElementById("prevPage").onclick = function(){
+ if(mobilePage > 1){
+  mobilePage--;
+  updateMobilePagination();
+ }
+};
+
+document.getElementById("nextPage").onclick = function(){
+
+ const totalCards =
+  document.querySelectorAll(".products .card").length;
+
+ const totalPages =
+  Math.ceil(totalCards / cardsPerMobilePage);
+
+ if(mobilePage < totalPages){
+  mobilePage++;
+  updateMobilePagination();
+ }
+};
+
+updateMobilePagination();
+
+</script>
+
+</body>
+</html>
