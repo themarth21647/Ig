@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for hotzone216 on 2026-09-05T06:15:56Z
+# fly.toml app configuration file generated for hotzonefree on 2026-09-05T06:21:31Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'hotzone216'
+app = 'hotzonefree'
 primary_region = 'ams'
 
 [build]
