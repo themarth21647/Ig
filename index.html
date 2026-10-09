@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+    <title>✨ PREMIUM STORE · exclusive digital goods</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="config.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f6f3ff 0%, #eae4fc 100%);
+            min-height: 100vh;
+            color: #1a1830;
+            padding: 1.2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .blob {
+            position: fixed;
+            width: 80vmax;
+            height: 80vmax;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(180, 160, 255, 0.3), rgba(140, 200, 255, 0.15));
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatBlob 24s infinite alternate ease-in-out;
+        }
+        .blob1 { top: -15vh; left: -10vw; background: radial-gradient(circle, #cdb4ff40, #a2d2ff20); }
+        .blob2 { bottom: -10vh; right: -5vw; width: 70vmax; height: 70vmax; background: radial-gradient(circle, #ffc8dd30, #bde0fe30); animation-duration: 28s; animation-delay: -5s; }
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 8%) scale(1.05); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 40px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 40px -8px rgba(0, 10, 30, 0.12), 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .logo h1 {
+            font-weight: 700;
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #2a1b4d, #4b367c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        .logo span {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #4a4a6a;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .telegram-badge {
+            background: #1e1e2f;
+            backdrop-filter: blur(8px);
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 12px 18px -6px rgba(30, 30, 47, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .telegram-badge i { font-size: 1.4rem; color: #9bb1ff; }
+        .telegram-badge:hover { transform: scale(1.02); box-shadow: 0 16px 24px -8px rgba(30, 30, 47, 0.35); }
+
+        /* ----- CARROSSEL DE DESTAQUES ----- */
+        .featured-section {
+            margin-bottom: 3rem;
+        }
+        .featured-section h2 {
+            color: #1a1730;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(135deg, #4b367c, #9f87ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            border-radius: 30px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 18px 36px -12px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .carousel-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding-bottom: 5px;
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            flex: 0 0 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-item:hover {
+            transform: scale(1.05);
+            border-color: #cbbff0;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            background: #f0f3fc;
+        }
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: #fff;
+            padding: 1rem 0.5rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ----- GRID DE PRODUTOS ----- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            border-radius: 32px;
+            padding: 1.2rem;
+            box-shadow: 0 18px 36px -12px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.15, 0.75, 0.4, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .product-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 28px 40px -14px #1e1e2f30, 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+        .product-card:hover::after { opacity: 0.5; }
+        .card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .img-wrapper {
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            background: #eaeef9;
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            max-height: 260px;
+        }
+        .product-card:hover .img-wrapper { box-shadow: 0 18px 28px -12px #3b2d6e40; }
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            background: #f0f3fc;
+        }
+        .product-card:hover .img-wrapper img { transform: scale(1.02); }
+
+        .product-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            color: #1a1730;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .price {
+            background: #1e1e2f;
+            padding: 0.25rem 0.9rem;
+            border-radius: 60px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 6px 10px -4px #1e1e2f60;
+            border: 1px solid #ffffff30;
+            white-space: nowrap;
+        }
+        .description {
+            color: #2e2e4a;
+            line-height: 1.5;
+            margin: 0.6rem 0 1.2rem;
+            font-weight: 400;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .action-group {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+        .btn {
+            border: none;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 6px 12px -6px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            flex: 1 1 0;
+            min-width: 110px;
+            color: #1e1e2f;
+            text-decoration: none;
+        }
+        .btn i { font-size: 0.95rem; }
+        .btn-preview { background: rgba(240, 242, 255, 0.7); backdrop-filter: blur(10px); }
+        .btn-preview:hover { background: #e0d9ff; box-shadow: 0 10px 18px -8px #6d5f9e; border-color: #cbbff0; }
+        .btn-buy { background: #1e1e2f; color: white; border: 1px solid #ffffff30; box-shadow: 0 8px 16px -6px #1e1e2f; }
+        .btn-buy i { color: #b7c9ff; }
+        .btn-buy:hover { background: #2d2b4a; transform: scale(1.02); box-shadow: 0 12px 22px -8px #141322; }
+
+        /* ----- MODAIS ----- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 15, 40, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.25s ease;
+            padding: 1rem;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 1.5rem 1.5rem 1.8rem;
+            box-shadow: 0 40px 60px -16px #00000040;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+            max-height: 95vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .active .modal-card { transform: scale(1); }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            flex-shrink: 0;
+        }
+        .modal-header h3 { font-size: 1.5rem; font-weight: 700; color: #1e1730; }
+        .close-modal {
+            background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #3a2e5c;
+            width: 44px; height: 44px; border-radius: 30px; display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 255, 255, 0.5); transition: background 0.2s;
+        }
+        .close-modal:hover { background: rgba(255, 255, 255, 0.9); }
+        .modal-body { overflow-y: auto; flex: 1; padding-right: 4px; }
+        .modal-body::-webkit-scrollbar { width: 6px; }
+        .modal-body::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; }
+        .modal-body::-webkit-scrollbar-thumb { background: rgba(30, 30, 47, 0.2); border-radius: 10px; }
+
+        .preview-media {
+            width: 100%; border-radius: 28px; overflow: hidden; background: #15121f10;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .preview-media img, .preview-media video { width: 100%; height: auto; max-height: 65vh; object-fit: contain; border-radius: 24px; }
+
+        .buy-product-info {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .buy-product-info .buy-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #1a1730;
+        }
+        .buy-product-info .buy-price {
+            background: #1e1e2f;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #ffffff30;
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .payment-option-btn {
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1a1730;
+            backdrop-filter: blur(4px);
+            text-align: left;
+            width: 100%;
+        }
+        .payment-option-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #b7a9e0;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -10px rgba(30, 30, 47, 0.15);
+        }
+        .payment-option-btn i {
+            font-size: 1.6rem;
+            width: 2.2rem;
+            text-align: center;
+            color: #4b367c;
+        }
+        .payment-option-btn .option-label {
+            flex: 1;
+        }
+        .payment-option-btn .option-arrow {
+            color: #8a7aaa;
+            font-size: 1rem;
+        }
+
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+        }
+        .network-item {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 0.6rem 0.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.2s;
+            font-weight: 600;
+            color: #1a1730;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .network-item:hover {
+            background: rgba(255, 255, 255, 0.85);
+            transform: scale(1.03);
+            border-color: #b7a9e0;
+            box-shadow: 0 8px 16px -8px rgba(30, 30, 47, 0.12);
+        }
+        .network-item i {
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+            color: #4b367c;
+        }
+
+        .back-to-options {
+            background: none;
+            border: none;
+            color: #5a4e7a;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.4rem 0;
+            transition: color 0.2s;
+            margin-top: 0.8rem;
+        }
+        .back-to-options:hover {
+            color: #1a1730;
+        }
+
+        .btn-dm {
+            background: #1e1e2f;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 8px 18px -6px #1e1e2f70;
+            width: 100%;
+            margin-top: 0.8rem;
+        }
+        .btn-dm:hover {
+            background: #2d2b4a;
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px -8px #141322;
+        }
+        .btn-dm i {
+            font-size: 1.4rem;
+            color: #b7c9ff;
+        }
+
+        .dm-proof-section {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            padding: 1.2rem 1.2rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        .dm-info {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #2a224a;
+            line-height: 1.4;
+        }
+        .dm-info strong {
+            color: #1a1730;
+        }
+
+        .footer-wave {
+            margin-top: 3.5rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .footer-wave i {
+            color: #5f4b8b;
+            font-size: 1.2rem;
+            margin: 0 4px;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.8rem 0.8rem; }
+            .header { padding: 1rem 1.2rem; border-radius: 30px; }
+            .logo h1 { font-size: 1.6rem; }
+            .telegram-badge { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+            .product-card { padding: 1rem; border-radius: 26px; }
+            .product-name { font-size: 1.25rem; }
+            .btn { padding: 0.7rem 0.8rem; font-size: 0.85rem; }
+            .img-wrapper { min-height: 150px; max-height: 220px; }
+            .modal-card { padding: 1.2rem; border-radius: 28px; }
+            .network-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+            .payment-option-btn { padding: 0.8rem 1rem; font-size: 0.95rem; }
+            .btn-dm { font-size: 1rem; padding: 0.8rem 1.2rem; }
+            .carousel-item { flex: 0 0 150px; }
+            .carousel-item img { height: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>ÆON·best folders</h1>
+                <span><i class="fas fa-sparkle" style="color:#9f87ff;"></i> instant preview · buy now</span>
+            </div>
+            <a href="https://t.me/New_content20266" target="_blank" class="telegram-badge">
+                <i class="fab fa-telegram-plane"></i>
+                <span>@New_content20266</span>
+                <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.75rem; opacity: 0.8;"></i>
+            </a>
+        </header>
+
+        <!-- SEÇÃO DE DESTAQUES (CARROSSEL) -->
+        <section class="featured-section">
+            <h2>✨ Highlights</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack"></div>
+            </div>
+        </section>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="footer-wave">
+            <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i>
+            <i class="fas fa-gem"></i>
+            <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i>
+        </div>
+    </div>
+
+    <!-- MODAL: Preview -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">Preview</h3>
+                <button class="close-modal" id="closePreviewBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-media" id="previewContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Buy -->
+    <div class="modal-overlay" id="buyModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="buyModalTitle">💎 Complete your purchase</h3>
+                <button class="close-modal" id="closeBuyBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="buyModalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            const products = [
+                { id: 1, name: "MOM AND SON", price: 40, description: "MOM AND SON GET FUCKED BEST STUFF 30GB.", image: "assets/1.jpeg", preview: "assets/videos/1.mp4" },
+                { id: 2, name: "AMELIA BLONDE", price: 35, description: "50GB REAL GIRL , SEX AND CP.", image: "assets/2.jpeg", preview: "assets/videos/2.mp4" },
+                { id: 3, name: "ALL TEENS 1TB", price: 100, description: "MOORE THAN 120.000 FILES OF TEENS RARE.", image: "assets/3.jpeg", preview: "assets/videos/3.mp4" },
+                { id: 4, name: "RAPE TEEN", price: 35, description: "RARE RAPE TEEN / 20GB NEW STUFF .", image: "assets/4.jpeg", preview: "assets/videos/4.mp4" },
+                { id: 5, name: "OMEGLE FULL", price: 85, description: "MORE THAN 120GB.", image: "assets/5.jpeg", preview: "assets/videos/5.mp4" },
+                { id: 6, name: "HIGH SCHOOL TEEN", price: 35, description: "HIGH SCHOOL MORE THAN 35GB.", image: "assets/6.jpeg", preview: "assets/videos/6.mp4" },
+                { id: 7, name: "ALL CONTENT 30TB", price: 200, description: "ALL CP / ALL TEENS / ALL VIP CHANNELS AND UPDATES EVERY WEEK.", image: "assets/7.jpeg", preview: "assets/videos/7.mp4" },
+                { id: 8, name: "LIZZY AND BRO", price: 35, description: "MORE THAN 45GB.", image: "assets/8.jpeg", preview: "assets/videos/8.mp4" },
+                { id: 9, name: "CP 1", price: 40, description: " BEST CP MORE THAN 25GB.", image: "assets/9.jpeg", preview: "assets/videos/9.mp4" },
+                { id: 10, name: "CP 3", price: 35, description: "MORE THAN 30GB.", image: "assets/00.jpeg", preview: "assets/videos/10.mp4" },
+                { id: 11, name: "PREMIUM VIP 8-17🔥", price: 40, description: "MORE THAN 1590 VIDEOS.", image: "assets/11.jpeg", preview: "assets/videos/11.mp4" },
+                { id: 12, name: "DESIRE GARCIA", price: 35, description: "MORE THAN 30GB.", image: "assets/12.jpeg", preview: "assets/videos/12.mp4" },
+                { id: 13, name: "INAVAK AND BRO", price: 35, description: "MORE THAN 45GB.", image: "assets/13.jpeg", preview: "assets/videos/13.mp4" },
+                { id: 14, name: "ALL CP 2TB", price: 120, description: "ALL 40 CP FOLDERS RARE AND ALL VIP GROUP.", image: "assets/14.jpeg", preview: "assets/videos/14.mp4" },
+                { id: 15, name: "AYUMI TEEN", price: 35, description: "POSI LEAKS BEST TEEN MORE THAN 20GB.", image: "assets/15.jpeg", preview: "assets/videos/15.mp4" },
+                { id: 16, name: "AVA SHIT", price: 35, description: "SNAPGOD SHIT MORE THAN 30GB.", image: "assets/16.jpeg", preview: "assets/videos/16.mp4" },
+                { id: 17, name: "13-17 TEEN", price: 45, description: "MORE THAN 5900 VIDEOS.", image: "assets/17.jpeg", preview: "assets/videos/17.mp4" },
+                { id: 18, name: "DARKZEID", price: 40, description: "FRESH LEAKS FROM 2026 – 35GB OF EXCLUSIVE CONTENT.", image: "assets/18.jpeg", preview: "assets/videos/18.mp4" },
+                { id: 19, name: "IZZY ZOO", price: 40, description: "MEGA PACK  IZZY AND DOG – 80GB.", image: "assets/19.jpeg", preview: "assets/videos/19.mp4" },
+                { id: 20, name: "SNAPGOD FULL", price: 75, description: "ULTRA HD SNAPGOD COLLECTION – 530GB.", image: "assets/20.jpeg", preview: "assets/videos/20.mp4" },
+                { id: 21, name: "EMMI SELLERS", price: 35, description: "BEST TEENS – 25GB.", image: "assets/21.jpeg", preview: "assets/videos/21.mp4" },
+                { id: 22, name: "TEENS CP", price: 45, description: "REAL CP LEAKS – 40GB OF INTIMATE CONTENT.", image: "assets/22.jpeg", preview: "assets/videos/22.mp4" },
+                { id: 23, name: "NEW STUFF PYT", price: 70, description: "TOP 114 FOLDERS OF TEENS – 300GB.", image: "assets/23.jpeg", preview: "assets/videos/23.mp4" },
+                { id: 24, name: "CP FATHER DAUGHTER", price: 45, description: "GOLD EDITION – 60GB OF RARE CP CONTENT.", image: "assets/24.jpeg", preview: "assets/videos/24.mp4" },
+                { id: 25, name: "SNAPCHAT LEAKS", price: 30, description: "SNAPCHAT LEAKS – 200GB OF EXCLUSIVE SNAPS.", image: "assets/25.jpeg", preview: "assets/videos/25.mp4" },
+                { id: 26, name: "BABY ASHLEY", price: 35, description: "TIKTOK STARS LEAKS – 55GB OF HOT CONTENT.", image: "assets/26.jpeg", preview: "assets/videos/26.mp4" },
+                { id: 27, name: "AXIOUS PANDA", price: 150, description: "500GB MEGA PACK – ALL TEENS, CP, VIP, AND MORE.", image: "assets/27.jpeg", preview: "assets/videos/27.mp4" },
+                { id: 28, name: "ALL PYT STUFF", price: 100, description: "MEGA BUNDLE - ALL PYT STUFF COMPLETE COLLECTION.", image: "assets/28.jpeg", preview: "" },
+                { id: 29, name: "BLOWJOB", price: 40, description: "BUNDLE - BLOWJOB MEGA COLLECTION.", image: "assets/29.jpeg", preview: "assets/videos/29.mp4" },
+                { id: 30, name: "ANIMAL AND YOUNG GIRLS", price: 45, description: "BUNDLE - ANIMAL AND YOUNG GIRLS ULTIMATE PACK.", image: "assets/30.jpeg", preview: "assets/videos/30.mp4" },
+                { id: 31, name: "GERMAN TEENS", price: 40, description: "BUNDLE - GERMAN TEENS EXCLUSIVE VAULT.", image: "assets/31.jpeg", preview: "assets/videos/31.mp4" },
+                { id: 32, name: "ELLE GOODMAN", price: 35, description: "BUNDLE - ELLE GOODMAN COMPLETE FOLDER.", image: "assets/32.jpeg", preview: "assets/videos/32.mp4" },
+                { id: 33, name: "SKI WHITE TEENS", price: 35, description: "BUNDLE - SKI WHITE TEENS FULL COLLECTION.", image: "assets/33.jpeg", preview: "assets/videos/33.mp4" },
+                { id: 34, name: "SKI LATINA PYT", price: 35, description: "BUNDLE - SKI LATINA PYT INTENSE PACK.", image: "assets/34.jpeg", preview: "assets/videos/34.mp4" },
+                { id: 35, name: "SKI BLACK PYT", price: 35, description: "BUNDLE - SKI BLACK PYT RARE FILES.", image: "assets/35.jpeg", preview: "assets/videos/35.mp4" },
+                { id: 36, name: "ALL VIP GROUPS", price: 100, description: "BUNDLE - ALL VIP GROUPS ACCESS COMBO.", image: "assets/36.jpeg", preview: "" },
+                { id: 37, name: "ULTIMATE TEENS COLLECTION", price: 120, description: "ULTIMATE BUNDLE - COMPLETE TEENS COLLECTION VAULT.", image: "assets/37.jpeg", preview: "" },
+                { id: 38, name: "GAY CP YOUNG", price: 45, description: "BUNDLE - GAY CP YOUNG EXCLUSIVE FILES.", image: "assets/38.jpeg", preview: "assets/videos/38.mp4" },
+                { id: 39, name: "BROTHER AND SIS", price: 45, description: "BUNDLE - BROTHER AND SIS BEST FOLDERS.", image: "assets/39.jpeg", preview: "assets/videos/39.mp4" },
+                { id: 40, name: "CP - 2", price: 40, description: "VIP PACK - FRESH LEAKS 2026.", image: "assets/40.jpeg", preview: "assets/videos/40.mp4" },
+                { id: 41, name: "KIYUMI TEEN", price: 40, description: "TEEN 2 - 150GB.", image: "assets/41.jpeg", preview: "assets/videos/41.mp4" },
+                { id: 42, name: "ENGLISH TEEN", price: 50, description: "EXCLUSIVE LEAKS - RARE CONTENT.", image: "assets/42.jpeg", preview: "assets/videos/42.mp4" },
+                { id: 43, name: "INCEST RICO", price: 45, description: "PRIVATE STUFF - FULL ACCESS.", image: "assets/43.jpeg", preview: "assets/videos/43.mp4" },
+                { id: 44, name: " TEENS MIX CP", price: 40, description: "YOUNG TEENS - HOMEMADE.", image: "assets/44.jpeg", preview: "assets/videos/44.mp4" },
+                { id: 45, name: "SEXTAPE 12-16", price: 45, description: "MEGA BUNDLE VIP - EVERYTHING INCLUDED.", image: "assets/45.jpeg", preview: "" },
+                { id: 46, name: "TEENS 11-17", price: 55, description: "FRESH DROP - NEW FILES.", image: "assets/46.jpeg", preview: "assets/videos/46.mp4" },
+                { id: 47, name: "TEEN SNAP", price: 30, description: "TEEN SNAP - SNAPCHAT LEAKS.", image: "assets/47.jpeg", preview: "assets/videos/47.mp4" },
+                { id: 48, name: " STREAMS GIRLS", price: 60, description: "LIVE STREAMS - RECORDED SESSIONS.", image: "assets/48.jpeg", preview: "assets/videos/48.mp4" },
+                { id: 49, name: "ULTIMATE CP", price: 90, description: "ULTIMATE CP - COMPLETE COLLECTION.", image: "assets/49.jpeg", preview: "assets/videos/49.mp4" }
+            ];
+
+            const methodIcons = {
+                pix: 'fa-qrcode',
+                cashapp: 'fa-dollar-sign',
+                card: 'fa-credit-card',
+                applepay: 'fa-apple-pay',
+                googlepay: 'fa-google-pay',
+                crypto: 'fa-coins',
+                paypal: 'fa-paypal',
+                giftcard: 'fa-gift'
+            };
+
+            function isVideoUrl(url) {
+                if (!url) return false;
+                const ext = ['.mp4', '.webm', '.mov', '.avi', '.mkv', '.ogg'];
+                return ext.some(e => url.toLowerCase().includes(e));
+            }
+
+            function openTelegramDM(message) {
+                const encoded = encodeURIComponent(message);
+                const link = `https://t.me/${TELEGRAM_USERNAME}?text=${encoded}`;
+                window.open(link, '_blank');
+            }
+
+            const grid = document.getElementById('productGrid');
+            const carouselTrack = document.getElementById('carouselTrack');
+
+            function renderCarousel() {
+                if (!carouselTrack) return;
+                let html = '';
+                products.slice(0, 15).forEach(p => {
+                    html += `
+                        <div class="carousel-item" data-preview='${JSON.stringify({name:p.name, url:p.preview})}'>
+                            <img src="${p.image}" alt="${p.name}" loading="lazy"
+                                 onerror="this.style.backgroundColor='#eaeef9'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f0f3fc%22/%3E%3Ctext x=%2220%22 y=%22150%22 font-family=%22Inter%22 font-size=%2216%22 fill=%22%234a4566%22%3ENo Image%3C/text%3E%3C/svg%3E';" />
+                            <div class="carousel-overlay">${p.name}</div>
+                        </div>
+                    `;
+                });
+                carouselTrack.innerHTML = html + html;
+                startAutoScroll();
+            }
+
+            let autoScrollInterval;
+            function startAutoScroll() {
+                if (!carouselTrack) return;
+                let scrollPos = 0;
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = setInterval(() => {
+                    scrollPos += 1;
+                    carouselTrack.scrollLeft = scrollPos;
+                    if (scrollPos >= carouselTrack.scrollWidth / 2) {
+                        scrollPos = 0;
+                        carouselTrack.scrollLeft = 0;
+                    }
+                }, 30);
+            }
+
+            function renderProducts() {
+                if (!grid) return;
+                let html = '';
+                products.forEach(p => {
+                    const priceFmt = p.price.toFixed(2);
+                    const previewBtn = (p.preview && p.preview.trim() !== '') ?
+                        `<button class="btn btn-preview" data-preview='${JSON.stringify({name:p.name, url:p.preview})}'><i class="fas fa-eye"></i> Preview</button>` :
+                        '';
+
+                    html += `
+                <div class="product-card" data-product-id="${p.id}">
+                  <div class="card-content">
+                    <div class="img-wrapper">
+                      <img src="${p.image}" alt="${p.name}" loading="lazy"
+                           onerror="this.style.backgroundColor='#eaeef9'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f0f3fc%22/%3E%3Ctext x=%2220%22 y=%22150%22 font-family=%22Inter%22 font-size=%2216%22 fill=%22%234a4566%22%3EImage not found%3C/text%3E%3C/svg%3E';" />
+                    </div>
+                    <div class="product-name">
+                      ${p.name}
+                      <span class="price">$${priceFmt}</span>
+                    </div>
+                    <p class="description">${p.description}</p>
+                    <div class="action-group">
+                      ${previewBtn}
+                      <button class="btn btn-buy" data-buy='${JSON.stringify({id:p.id, name:p.name, price:p.price})}'>
+                        <i class="fas fa-bolt"></i> Buy now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `;
+                });
+                grid.innerHTML = html;
+            }
+
+            renderCarousel();
+            renderProducts();
+
+            const previewModal = document.getElementById('previewModal');
+            const previewTitle = document.getElementById('modalTitle');
+            const previewContent = document.getElementById('previewContent');
+            const closePreview = document.getElementById('closePreviewBtn');
+
+            function openPreview(data) {
+                if (!data || !data.url) return;
+                previewTitle.textContent = data.name || 'Preview';
+                previewContent.innerHTML = '';
+                const url = data.url;
+                if (isVideoUrl(url)) {
+                    const video = document.createElement('video');
+                    video.src = url;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.muted = false;
+                    video.loop = false;
+                    video.style.width = '100%';
+                    video.style.borderRadius = '24px';
+                    previewContent.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = data.name || 'Preview';
+                    img.loading = 'lazy';
+                    img.onerror = () => {
+                        img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23eaeef9%22/%3E%3Ctext x=%2220%22 y=%22150%22 font-family=%22Inter%22 font-size=%2216%22 fill=%22%234a4566%22%3EPreview not available%3C/text%3E%3C/svg%3E';
+                    };
+                    previewContent.appendChild(img);
+                }
+                previewModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closePreviewModal() {
+                previewModal.classList.remove('active');
+                document.body.style.overflow = '';
+                const v = previewContent.querySelector('video');
+                if (v) { v.pause(); v.currentTime = 0; }
+            }
+
+            const buyModal = document.getElementById('buyModal');
+            const buyModalBody = document.getElementById('buyModalBody');
+            const closeBuyBtn = document.getElementById('closeBuyBtn');
+            let currentBuyProduct = null;
+            let buyView = 'options';
+
+            const cryptoNetworks = [
+                { name: 'Bitcoin (BTC)', icon: 'fa-btc' },
+                { name: 'Ethereum (ETH)', icon: 'fa-ethereum' },
+                { name: 'USDT (ERC20)', icon: 'fa-coins' },
+                { name: 'USDT (TRC20)', icon: 'fa-coins' },
+                { name: 'Litecoin (LTC)', icon: 'fa-coins' },
+                { name: 'Dogecoin (DOGE)', icon: 'fa-dog' },
+                { name: 'BNB (BSC)', icon: 'fa-cube' },
+                { name: 'XRP', icon: 'fa-circle' },
+            ];
+
+            function renderBuyModal(product, view = 'options') {
+                currentBuyProduct = product;
+                buyView = view;
+                const priceFmt = product.price.toFixed(2);
+                let html = '';
+
+                html += `
+              <div class="buy-product-info">
+                <span class="buy-name">${product.name}</span>
+                <span class="buy-price">$${priceFmt}</span>
+              </div>
+            `;
+
+                if (view === 'options') {
+                    html += `
+                <div class="payment-options">
+                  <button class="payment-option-btn" data-method="pix">
+                    <i class="fas fa-qrcode"></i>
+                    <span class="option-label">🇧🇷 Pix</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="cashapp">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span class="option-label">💰 CashApp</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="paypal">
+                    <i class="fab fa-paypal"></i>
+                    <span class="option-label">💸 PayPal</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="giftcard">
+                    <i class="fas fa-gift"></i>
+                    <span class="option-label">🎁 Gift Card</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="crypto">
+                    <i class="fas fa-coins"></i>
+                    <span class="option-label">₿ Crypto</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="card">
+                    <i class="fas fa-credit-card"></i>
+                    <span class="option-label">💳 Card / Bank</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="applepay">
+                    <i class="fab fa-apple-pay"></i>
+                    <span class="option-label">🍏 Apple Pay</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                  <button class="payment-option-btn" data-method="googlepay">
+                    <i class="fab fa-google-pay"></i>
+                    <span class="option-label">🍀 Google Pay</span>
+                    <span class="option-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </button>
+                </div>
+                <div style="margin-top: 0.8rem; font-size:0.8rem; color:#5a4e7a; text-align:center; opacity:0.7;">
+                  <i class="fas fa-lock" style="margin-right:4px;"></i> All payments are securely processed via Telegram DM
+                </div>
+              `;
+                } else if (view === 'crypto') {
+                    let netHtml = '';
+                    cryptoNetworks.forEach(net => {
+                        netHtml += `
+                  <div class="network-item" data-network="${net.name}">
+                    <i class="fab ${net.icon}"></i>
+                    ${net.name}
+                  </div>
+                `;
+                    });
+                    html += `
+                <div class="giftcard-section">
+                  <div class="gc-title"><i class="fas fa-coins" style="color:#6d5f9e;"></i> Choose your Crypto Network</div>
+                  <div class="network-grid">${netHtml}</div>
+                  <button class="back-to-options" id="backToOptions"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+              `;
+                } else {
+                    const methodLabels = {
+                        pix: 'Pix',
+                        cashapp: 'CashApp',
+                        paypal: 'PayPal',
+                        giftcard: 'Gift Card',
+                        card: 'Card / Bank',
+                        applepay: 'Apple Pay',
+                        googlepay: 'Google Pay'
+                    };
+                    const method = view;
+                    const label = methodLabels[method] || method;
+                    const iconClass = methodIcons[method] || 'fa-credit-card';
+                    const msg =
+                        `Hello! I'm interested in buying *${product.name}* for $${priceFmt}. I would like to pay with *${label}*. Please send me the payment details. Thank you!`;
+
+                    html += `
+                <div class="dm-proof-section">
+                  <div class="dm-info">
+                    <i class="fas fa-info-circle" style="color:#6d5f9e; margin-right:6px;"></i>
+                    You will be redirected to Telegram with a pre-filled message.<br />
+                    <strong>@${TELEGRAM_USERNAME}</strong> – we'll respond with payment instructions.
+                  </div>
+                  <button class="btn-dm" id="confirmMethodBtn">
+                    <i class="fas ${iconClass}"></i> Proceed with ${label}
+                  </button>
+                  <button class="back-to-options" id="backToOptions"><i class="fas fa-arrow-left"></i> Back</button>
+                  <div style="margin-top:0.6rem; font-size:0.75rem; color:#5a4e7a; opacity:0.6; text-align:center;">
+                    <i class="fas fa-clock"></i> Pre-filled message – just send!
+                  </div>
+                </div>
+              `;
+                }
+
+                buyModalBody.innerHTML = html;
+
+                if (view === 'options') {
+                    const btns = buyModalBody.querySelectorAll('.payment-option-btn[data-method]');
+                    btns.forEach(btn => {
+                        btn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const method = this.dataset.method;
+                            if (method === 'crypto') {
+                                if (currentBuyProduct) renderBuyModal(currentBuyProduct, 'crypto');
+                            } else {
+                                if (currentBuyProduct) renderBuyModal(currentBuyProduct, method);
+                            }
+                        });
+                    });
+                } else if (view === 'crypto') {
+                    const netItems = buyModalBody.querySelectorAll('.network-item');
+                    netItems.forEach(item => {
+                        item.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const network = this.dataset.network;
+                            if (currentBuyProduct) {
+                                const priceFmt = currentBuyProduct.price.toFixed(2);
+                                const msg =
+                                    `Hello! I'm interested in buying *${currentBuyProduct.name}* for $${priceFmt}. I would like to pay with *Crypto* using network: *${network}*. Please send me the wallet address. Thank you!`;
+                                openTelegramDM(msg);
+                                closeBuyModal();
+                            }
+                        });
+                    });
+                } else {
+                    const confirmBtn = document.getElementById('confirmMethodBtn');
+                    const backBtn = document.getElementById('backToOptions');
+                    if (confirmBtn) {
+                        confirmBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            if (currentBuyProduct) {
+                                const priceFmt = currentBuyProduct.price.toFixed(2);
+                                const methodLabels = {
+                                    pix: 'Pix',
+                                    cashapp: 'CashApp',
+                                    paypal: 'PayPal',
+                                    giftcard: 'Gift Card',
+                                    card: 'Card / Bank',
+                                    applepay: 'Apple Pay',
+                                    googlepay: 'Google Pay'
+                                };
+                                const label = methodLabels[buyView] || buyView;
+                                const msg =
+                                    `Hello! I'm interested in buying *${currentBuyProduct.name}* for $${priceFmt}. I would like to pay with *${label}*. Please send me the payment details. Thank you!`;
+                                openTelegramDM(msg);
+                                closeBuyModal();
+                            }
+                        });
+                    }
+                    if (backBtn) {
+                        backBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            if (currentBuyProduct) renderBuyModal(currentBuyProduct, 'options');
+                        });
+                    }
+                }
+            }
+
+            function openBuyModal(product) {
+                if (!product) return;
+                document.getElementById('buyModalTitle').textContent = '💎 Complete your purchase';
+                renderBuyModal(product, 'options');
+                buyModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeBuyModal() {
+                buyModal.classList.remove('active');
+                document.body.style.overflow = '';
+                currentBuyProduct = null;
+                buyView = 'options';
+            }
+
+            document.addEventListener('click', function(e) {
+                const previewBtn = e.target.closest('.btn-preview');
+                if (previewBtn) {
+                    e.preventDefault();
+                    const dataAttr = previewBtn.getAttribute('data-preview');
+                    if (dataAttr) {
+                        try { openPreview(JSON.parse(dataAttr)); } catch (_) {}
+                    }
+                    return;
+                }
+
+                const buyBtn = e.target.closest('.btn-buy');
+                if (buyBtn) {
+                    e.preventDefault();
+                    const dataAttr = buyBtn.getAttribute('data-buy');
+                    if (dataAttr) {
+                        try {
+                            const prodData = JSON.parse(dataAttr);
+                            const fullProduct = products.find(p => p.id === prodData.id);
+                            if (fullProduct) {
+                                openBuyModal(fullProduct);
+                            } else {
+                                openBuyModal(prodData);
+                            }
+                        } catch (_) {}
+                    }
+                    return;
+                }
+
+                if (e.target === previewModal) closePreviewModal();
+                if (e.target === buyModal) closeBuyModal();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (previewModal.classList.contains('active')) closePreviewModal();
+                    if (buyModal.classList.contains('active')) closeBuyModal();
+                }
+            });
+
+            closePreview.addEventListener('click', closePreviewModal);
+            closeBuyBtn.addEventListener('click', closeBuyModal);
+
+            console.log('✨ ÆON store loaded · Light Theme with Highlights');
+        })();
+    </script>
+</body>
+</html>
